@@ -5,7 +5,9 @@
 
 Experience nostalgia with the iconic Windows 95 right from your browser. Retro 95 is an attempt to recreate the Windows 95 desktop experience with Flutter. Contains programs like notepad , a web browser, calculator and more.
 
-A Retro theme Flutter Hack 20 Entry!
+Developed with Flutter Web, but will compile to all platforms that Flutter supports.
+
+A Retro Theme Flutter Hack 20 Entry!
 
 ## Features
 * Reorder Desktop Icons
