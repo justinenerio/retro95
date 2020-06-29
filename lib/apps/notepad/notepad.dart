@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter95/flutter95.dart';
+import 'package:flutter95/flutter95.dart' hide TextField95;
+import 'package:retro95/apps/notepad/textfield95.dart';
 
 class Notepad extends StatelessWidget {
   @override
@@ -29,8 +30,13 @@ class Notepad extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child:
-                  Elevation95(type: Elevation95Type.down, child: TextField95()),
+              child: Elevation95(
+                type: Elevation95Type.down,
+                child: TextField95(
+                  keyboardType: TextInputType.multiline,
+                  maxLines: null,
+                ),
+              ),
             ),
           ),
         ],

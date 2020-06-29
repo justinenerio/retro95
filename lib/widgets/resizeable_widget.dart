@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:retro95/apps/bluescreen/dummy.dart';
 import 'package:retro95/apps/browser/browser.dart';
+import 'package:retro95/apps/calculator/calculator.dart';
 import 'package:retro95/apps/counter/counter.dart';
 import 'package:retro95/apps/flutter95/flutter95.dart';
+import 'package:retro95/apps/maps/maps.dart';
 import 'package:retro95/apps/notepad/notepad.dart';
 import 'package:retro95/models/application.dart';
 import 'package:retro95/widgets/custom_scaffold95.dart';
@@ -52,6 +54,10 @@ class _WindowState extends State<Window> {
         return Browser();
       case 'notepad-app':
         return Notepad();
+      case 'maps-app':
+        return Maps();
+      case 'calculator-app':
+        return Calculator();
       default:
         return CounterApp();
     }

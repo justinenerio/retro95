@@ -1,6 +1,6 @@
-import 'package:easy_web_view/easy_web_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter95/flutter95.dart';
+import 'package:easy_web_view/easy_web_view.dart';
 
 class Browser extends StatefulWidget {
   @override
@@ -83,10 +83,10 @@ class _BrowserState extends State<Browser> {
             child: Elevation95(
               type: Elevation95Type.down,
               child: EasyWebView(
+                key: ValueKey('key_0'),
                 src: _url,
                 isHtml: false,
                 isMarkdown: false,
-                onLoaded: () {},
               ),
             ),
           ),

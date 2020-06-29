@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter95/flutter95.dart';
 import 'package:reorderables/reorderables.dart';
+import 'package:retro95/constants/constants.dart';
 import 'package:retro95/models/application.dart';
 import 'package:retro95/widgets/resizeable_widget.dart';
 import 'package:retro95/widgets/toolbar.dart';
@@ -15,11 +17,19 @@ class _RootState extends State<Root> {
 
   int applicationId = 0;
 
+  @override
+  void initState() {
+    super.initState();
+
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Constants.backgroundColor),
+    );
+  }
+
   void onOpenApp(Application app) {
     setState(() {
       _activeApps.add(app.copyWith(
         processId: applicationId,
-        maximized: true,
         minimized: false,
       ));
       applicationId++;
@@ -27,11 +37,9 @@ class _RootState extends State<Root> {
   }
 
   void onCloseApp(int processId) {
-    print('$processId asdf');
     final list =
         _activeApps.where((val) => val.processId != processId).toList();
     setState(() {
-      // _activeApps.removeWhere((val) => val.processId == processId);
       _activeApps = list;
     });
   }
@@ -71,6 +79,7 @@ class _RootState extends State<Root> {
             Container(
               child: ToolBar(
                 activeApps: _activeApps,
+                onOpenApp: onOpenApp,
               ),
             )
           ],
@@ -95,28 +104,7 @@ class Desktop extends StatefulWidget {
 }
 
 class _DesktopState extends State<Desktop> {
-  List<Application> defaultApps = [
-    Application(
-        label: 'Counter',
-        image: 'assets/images/tree.png',
-        processName: 'tree-app'),
-    Application(
-        label: 'Doom95',
-        image: 'assets/images/application.png',
-        processName: 'dummy-app'),
-    Application(
-        label: 'Flutter95',
-        image: 'assets/images/windows.png',
-        processName: 'flutter95-app'),
-    Application(
-        label: 'Internet Explorer',
-        image: 'assets/images/windows.png',
-        processName: 'browser-app'),
-    Application(
-        label: 'Notepad',
-        image: 'assets/images/notepad.png',
-        processName: 'notepad-app'),
-  ];
+  List<Application> defaultApps = Constants.defaultApps;
 
   void _onReorder(int oldIndex, int newIndex) {
     setState(() {
@@ -138,7 +126,7 @@ class _DesktopState extends State<Desktop> {
         alignment: WrapAlignment.start,
         scrollDirection: Axis.horizontal,
         spacing: 32.0,
-        runSpacing: 8.0,
+        runSpacing: 32.0,
         padding: const EdgeInsets.all(8),
         children: defaultApps.map((app) {
           return GestureDetector(

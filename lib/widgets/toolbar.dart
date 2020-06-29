@@ -3,13 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter95/flutter95.dart';
 import 'package:intl/intl.dart';
+import 'package:retro95/constants/constants.dart';
 import 'package:retro95/models/application.dart';
 import 'package:retro95/widgets/toolbar_item.dart';
 
 class ToolBar extends StatelessWidget {
   final List<Application> activeApps;
+  final Function onOpenApp;
 
-  const ToolBar({Key key, this.activeApps}) : super(key: key);
+  const ToolBar({Key key, this.activeApps, this.onOpenApp}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Elevation95(
@@ -21,7 +23,27 @@ class ToolBar extends StatelessWidget {
           children: [
             Button95(
               padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-              onTap: () {},
+              onTap: () {
+                final items = Constants.defaultApps
+                    .map(
+                      (app) => MenuItem95(
+                        label: app.label,
+                        value: app,
+                      ),
+                    )
+                    .toList();
+
+                final menu = Menu95(
+                    items: items,
+                    onItemSelected: (val) {
+                      if (val != null) onOpenApp(val);
+                    });
+
+                menu.show(
+                  context,
+                  context.rect.shift(Offset(0, 24)),
+                );
+              },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,14 +61,18 @@ class ToolBar extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Expanded(
-              child: Row(
-                children: [
-                  for (final app in activeApps)
-                    ToolBarItem(
-                      app: app,
-                      // onTapItem: notifier.minimize,
-                    )
-                ],
+              child: Container(
+                height: 30,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: [
+                    for (final app in activeApps)
+                      ToolBarItem(
+                        app: app,
+                        onTapItem: () {},
+                      )
+                  ],
+                ),
               ),
             ),
             const SizedBox(width: 10),

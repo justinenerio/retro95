@@ -1,16 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter95/flutter95.dart';
+import 'package:retro95/constants/constants.dart';
 import 'package:retro95/widgets/restart_widget.dart';
 
 class BlueScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Constants.bsodColor),
+    );
+
     return GestureDetector(
       onDoubleTap: () {
         RestartWidget.restartApp(context);
       },
       child: Scaffold(
-        backgroundColor: Color(0xFF0100aa),
+        backgroundColor: Constants.bsodColor,
         body: SizedBox.expand(
           child: Container(
             padding: const EdgeInsets.all(32.0),
