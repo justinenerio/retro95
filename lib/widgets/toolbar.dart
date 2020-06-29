@@ -22,7 +22,7 @@ class ToolBar extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             Button95(
-              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 12),
               onTap: () {
                 final items = Constants.defaultApps
                     .map(
@@ -47,10 +47,10 @@ class ToolBar extends StatelessWidget {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/images/windows.png'),
-                  const SizedBox(width: 4.0),
+                  const SizedBox(width: 8.0),
                   Text(
                     'Start',
                     style: Flutter95.textStyle
@@ -116,7 +116,7 @@ class _ToolBarItemState extends State<ToolBarItem> {
         isSelected: true,
         child: Row(
           mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             if (widget.app.image != null) Image.asset(widget.app.image),
@@ -127,9 +127,7 @@ class _ToolBarItemState extends State<ToolBarItem> {
             ),
           ],
         ),
-        onTap: () {
-          // widget.onTapItem(widget.app.id);
-        },
+        onTap: () {},
       ),
     );
   }

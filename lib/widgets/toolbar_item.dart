@@ -46,7 +46,7 @@ class _ToolbarItem95State extends State<ToolbarItem95> {
         onTapCancel: () => setState(() => _tapped = false),
         child: Container(
           decoration: isSelected
-              ? Flutter95.pressedDecorationOutside
+              ? Flutter95.elevatedDecorationOutside
               : Flutter95.elevatedDecorationOutside,
           child: Container(
             padding: widget.padding,

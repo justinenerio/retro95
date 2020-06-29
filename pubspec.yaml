@@ -14,8 +14,7 @@ dependencies:
 
   cupertino_icons: ^0.1.3
 
-  flutter95:
-    path: /home/justinenerio/dev/packages/flutter95
+  flutter95: ^0.0.7
 
   reorderables: ^0.3.2
 
@@ -28,6 +27,8 @@ dependencies:
   easy_web_view: 1.2.0
 
   easy_google_maps: 1.0.0+2
+
+  url_launcher: ^5.4.11
 
 dev_dependencies:
   flutter_test:

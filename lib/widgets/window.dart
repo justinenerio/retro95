@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:retro95/apps/about/about.dart';
 import 'package:retro95/apps/bluescreen/dummy.dart';
 import 'package:retro95/apps/browser/browser.dart';
 import 'package:retro95/apps/calculator/calculator.dart';
@@ -58,13 +59,11 @@ class _WindowState extends State<Window> {
         return Maps();
       case 'calculator-app':
         return Calculator();
+      case 'about-app':
+        return About();
       default:
         return CounterApp();
     }
-  }
-
-  void test() {
-    widget.onMinizeApp();
   }
 
   void onMaximize() {
@@ -91,6 +90,7 @@ class _WindowState extends State<Window> {
         child: ResizebleWidget(
           child: CustomScaffold95(
             title: _app.label,
+            headerImage: Image.asset(widget.app.image),
             body: CustomNavigator(
               navigatorKey: navigatorKey,
               pageRoute: PageRoutes.materialPageRoute,
@@ -98,7 +98,7 @@ class _WindowState extends State<Window> {
             ),
             onClose: () => widget.onCloseApp(_app.processId),
             onMaximize: onMaximize,
-            onMinimize: onMinimize,
+            onMinimize: null,
           ),
           height: _app.maximized ? widget.constraints.maxHeight : widget.height,
           width: _app.maximized ? widget.constraints.maxWidth : widget.width,
@@ -146,10 +146,6 @@ class _ResizebleWidgetState extends State<ResizebleWidget> {
   void initState() {
     height = widget.height;
     width = widget.width;
-    // if (widget.maximize) {
-    //   height = widget.constraints.maxHeight;
-    //   width = widget.constraints.maxWidth;
-    // }
     super.initState();
   }
 

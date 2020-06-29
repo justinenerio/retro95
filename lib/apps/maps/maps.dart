@@ -10,23 +10,21 @@ class Maps extends StatefulWidget {
 class _MapsState extends State<Maps> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 4.0),
-              child: EasyGoogleMaps(
-                key: ValueKey('key_1'),
-                apiKey: kGoogleMapsApiKey,
-                address:
-                    '1600 Amphitheatre Parkway, Mountain View, California, United States ',
-                title: 'Googleplex',
-              ),
+    return Column(
+      children: <Widget>[
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: EasyGoogleMaps(
+              key: ValueKey('key_1'),
+              apiKey: kGoogleMapsApiKey,
+              address:
+                  '1600 Amphitheatre Parkway, Mountain View, California, United States ',
+              title: 'Googleplex',
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

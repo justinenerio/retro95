@@ -85,8 +85,6 @@ class _BrowserState extends State<Browser> {
               child: EasyWebView(
                 key: ValueKey('key_0'),
                 src: _url,
-                isHtml: false,
-                isMarkdown: false,
               ),
             ),
           ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter95/flutter95.dart';
 
+// from Flutter95 package
 class TextField95 extends StatefulWidget {
-  // TODO: Expose more properties from TextField
   const TextField95({
     Key key,
     this.controller,

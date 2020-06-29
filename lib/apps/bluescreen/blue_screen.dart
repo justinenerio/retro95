@@ -12,7 +12,7 @@ class BlueScreen extends StatelessWidget {
     );
 
     return GestureDetector(
-      onDoubleTap: () {
+      onTap: () {
         RestartWidget.restartApp(context);
       },
       child: Scaffold(
@@ -68,7 +68,7 @@ class BlueScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 52),
                 Text(
-                  'Press any key to continue _',
+                  'Press any ALT+F4 to continue _',
                   style: Flutter95.textStyle.copyWith(
                     color: Colors.white,
                     fontSize: 24,

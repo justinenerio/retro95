@@ -11,6 +11,7 @@ class CustomScaffold95 extends StatelessWidget {
     this.onClose,
     this.onMinimize,
     this.onMaximize,
+    this.headerImage,
   }) : super(key: key);
 
   final String title;
@@ -19,6 +20,7 @@ class CustomScaffold95 extends StatelessWidget {
   final Function onClose;
   final Function onMinimize;
   final Function onMaximize;
+  final Image headerImage;
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +29,10 @@ class CustomScaffold95 extends StatelessWidget {
         children: <Widget>[
           WindowHeader95(
             title: title,
-            onMinimize: onMaximize,
+            onMinimize: onMinimize,
             onClose: onClose,
             onMaximize: onMaximize,
+            headerImage: headerImage,
           ),
           const SizedBox(height: 4),
           if (toolbar != null) toolbar,
@@ -50,6 +53,7 @@ class WindowHeader95 extends StatefulWidget {
     this.onClose,
     this.onMinimize,
     this.onMaximize,
+    this.headerImage,
   }) : super(key: key);
 
   final String title;
@@ -57,6 +61,7 @@ class WindowHeader95 extends StatefulWidget {
   final Function onClose;
   final Function onMinimize;
   final Function onMaximize;
+  final Image headerImage;
 
   @override
   _WindowHeader95State createState() => _WindowHeader95State();
@@ -81,20 +86,29 @@ class _WindowHeader95State extends State<WindowHeader95> {
           child: Row(
             children: [
               const SizedBox(width: 8),
+              if (widget.headerImage != null)
+                Container(
+                  height: 20,
+                  width: 20,
+                  child: widget.headerImage,
+                ),
+              const SizedBox(width: 8),
               Text(
                 widget.title,
                 style: Flutter95.headerTextStyle,
               ),
               Spacer(),
-              HeadButton95(
-                icon: Icons.minimize,
-                onClick: widget.onMinimize,
-              ),
+              if (widget.onMinimize != null)
+                HeadButton95(
+                  icon: Icons.minimize,
+                  onClick: widget.onMinimize,
+                ),
               const SizedBox(width: 4),
-              HeadButton95(
-                icon: Icons.crop_square,
-                onClick: widget.onMaximize,
-              ),
+              if (widget.onMaximize != null)
+                HeadButton95(
+                  icon: Icons.crop_square,
+                  onClick: widget.onMaximize,
+                ),
               const SizedBox(width: 4),
               HeadButton95(
                 icon: Icons.close,
