@@ -24,11 +24,10 @@ A Retro theme Flutter Hack 20 Entry!
 * Calculator
 * About
 
-  
-  ## Screenshots
-  <p align="center">
-  <img src="screenshots/1.jpg" width="256" hspace="4">
-  <img src="screenshots/3.jpg" width="256" hspace="4">
+## Screenshots
+<p align="center">
+  <img src="screenshots/1.jpg"  hspace="4">
+  <img src="screenshots/2.jpg" hspace="4">
 </p>
 
 ## Demo
@@ -41,16 +40,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Download either Android Studio or Visual Studio Code, with their respective [Flutter editor plugins](https://flutter.io/get-started/editor/). For more information about Flutter installation procedure, check the [official install guide](https://flutter.io/get-started/install/).
+Download either Android Studio or Visual Studio Code, with their respective [Flutter editor plugins](https://flutter.dev/get-started/editor/). For more information about Flutter installation procedure, check the [official install guide](https://flutter.dev/get-started/install/).
 
 ### Steps
 1. Clone the repository with the 'clone' command, or just download the zip.
 
 2. Install dependencies from pubspec.yaml by running `flutter packages get` from the project root (see [using packages documentation](https://flutter.io/using-packages/#adding-a-package-dependency-to-an-app) for details and how to do this in the editor). 
 
-3. Add `/constants/api_key.dart` file with API key from Google Embedded Maps API.
+3. Add `/constants/api_key.dart` file with API key from [Google Embedded Maps API](https://developers.google.com/maps/documentation/embed/get-api-key).
 
-4. Run
+4. Run.
 
 ## Built With
 
@@ -70,3 +69,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE.
 ## Acknowledgments
 
 * Flutter Community for hosting this hackathon
+* [Artage.io](https://artage.io) for Windows 95 icons
